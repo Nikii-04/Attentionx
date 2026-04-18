@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <title>AttentionX AI</title>
+</head>
+<body class="container">
+    <nav>
+        <ul><li><strong>AttentionX</strong></li></ul>
+    </nav>
+    <main>
+        <h1>Repurpose Video in Seconds</h1>
+        <p>Upload a long video and get viral TikToks/Reels automatically.</p>
+        <input type="file" id="videoFile">
+        <button onclick="upload()">Generate Viral Clips</button>
+        <div id="status"></div>
+    </main>
+    <script>
+        async function upload() {
+            const file = document.getElementById('videoFile').files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            document.getElementById('status').innerText = "Processing... this may take a minute.";
+            const response = await fetch('/upload', { method: 'POST', body: formData });
+            const result = await response.json();
+            document.getElementById('status').innerText = result.message;
+        }
+    </script>
+</body>
+</html>

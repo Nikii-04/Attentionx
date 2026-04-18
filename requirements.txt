@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+moviepy
+librosa
+openai-whisper
+mediapipe
+numpy
+pydantic
+python-multipart
